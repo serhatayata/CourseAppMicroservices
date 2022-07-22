@@ -14,7 +14,7 @@ namespace FreeCourse.Services.Catalog.Services
         private readonly IMapper _mapper;
         //private readonly Mass.IPublishEndpoint _publishEndpoint;
 
-        public CourseService(IMapper mapper, IDatabaseSettings databaseSettings, /*Mass.IPublishEndpoint publishEndpoint*/)
+        public CourseService(IMapper mapper, IDatabaseSettings databaseSettings /*Mass.IPublishEndpoint publishEndpoint*/)
         {
             var client = new MongoClient(databaseSettings.ConnectionString);
 
