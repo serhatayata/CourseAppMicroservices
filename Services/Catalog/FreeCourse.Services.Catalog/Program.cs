@@ -1,3 +1,4 @@
+using FreeCourse.Services.Catalog.Dtos;
 using FreeCourse.Services.Catalog.Mapping;
 using FreeCourse.Services.Catalog.Services;
 using FreeCourse.Services.Catalog.Settings;
@@ -16,6 +17,7 @@ builder.Services.AddControllers(opt =>
 {
     opt.Filters.Add(new AuthorizeFilter());
 });
+
 #region AutoMapper
 builder.Services.AddAutoMapper(typeof(GeneralMapping).Assembly);
 #endregion
@@ -50,6 +52,22 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+#region SEED DATA
+using (var scope = app.Services.CreateScope())
+{
+    var serviceProvider = scope.ServiceProvider;
+
+    var categoryService = serviceProvider.GetRequiredService<ICategoryService>();
+
+    if (!categoryService.GetAllAsync().Result.Data.Any())
+    {
+        categoryService.CreateAsync(new CategoryDto { Name = "Asp.net Core Kursu" }).Wait();
+        categoryService.CreateAsync(new CategoryDto { Name = "Asp.net Core API Kursu" }).Wait();
+    }
+}
+#endregion
+
 
 app.UseAuthentication();
 app.UseAuthorization();
