@@ -18,7 +18,7 @@ namespace FreeCourse.Web.Services
         private readonly HttpClient _httpClient;
         private readonly IBasketService _basketService;
         private readonly ISharedIdentityService _sharedIdentityService;
-
+         
         public OrderService(IPaymentService paymentService, HttpClient httpClient, IBasketService basketService, ISharedIdentityService sharedIdentityService)
         {
             _paymentService = paymentService;
@@ -39,6 +39,7 @@ namespace FreeCourse.Web.Services
                 CVV = checkoutInfoInput.CVV,
                 TotalPrice = basket.TotalPrice
             };
+
             var responsePayment = await _paymentService.ReceivePayment(paymentInfoInput);
 
             if (!responsePayment)

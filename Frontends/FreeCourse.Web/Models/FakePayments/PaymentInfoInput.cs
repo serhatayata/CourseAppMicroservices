@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace FreeCourse.Web.Models.FakePayments
-{
+{ 
     public class PaymentInfoInput
     {
         public string CardName { get; set; }
