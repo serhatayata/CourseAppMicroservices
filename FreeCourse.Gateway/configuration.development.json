@@ -14,9 +14,7 @@
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "GatewayAuthenticationScheme",
-        "AllowedScopes": [
-          "catalog_fullpermission"
-        ]
+        "AllowedScopes": [ "catalog_fullpermission" ]
       }
     },
     {
@@ -33,9 +31,7 @@
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "GatewayAuthenticationScheme",
-        "AllowedScopes": [
-          "photo_stock_fullpermission"
-        ]
+        "AllowedScopes": [ "photo_stock_fullpermission" ]
       }
     },
     {
@@ -52,9 +48,7 @@
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "GatewayAuthenticationScheme",
-        "AllowedScopes": [
-          "basket_fullpermission"
-        ]
+        "AllowedScopes": [ "basket_fullpermission" ]
       }
     },
     {
@@ -69,11 +63,9 @@
       "UpstreamPathTemplate": "/services/discount/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
+      "DelegatingHandlers": [ "TokenExhangeDelegateHandler" ],
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "GatewayAuthenticationScheme",
-        "AllowedScopes": [
-          "discount_fullpermission"
-        ]
+        "AuthenticationProviderKey": "GatewayAuthenticationScheme"
       }
     },
     {
@@ -90,9 +82,7 @@
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "GatewayAuthenticationScheme",
-        "AllowedScopes": [
-          "order_fullpermission"
-        ]
+        "AllowedScopes": [ "order_fullpermission" ]
       }
     },
     {
@@ -107,14 +97,11 @@
       "UpstreamPathTemplate": "/services/fakepayment/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
+      "DelegatingHandlers": [ "TokenExhangeDelegateHandler" ],
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "GatewayAuthenticationScheme",
-        "AllowedScopes": [
-          "payment_fullpermission"
-        ]
+        "AuthenticationProviderKey": "GatewayAuthenticationScheme"
       }
     }
-
   ],
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:5000"
