@@ -124,7 +124,6 @@ namespace FreeCourse.Web.Services
                 Address = disco.TokenEndpoint
             };
 
-            //BURADA HYBRID İÇİN HANGİ METHOD KULLANILACAK...
             var token = await _httpClient.RequestPasswordTokenAsync(passwordTokenRequest);
               
             if (token.IsError)
@@ -159,7 +158,6 @@ namespace FreeCourse.Web.Services
             //    ]
             //}
             //UserInfo ile gelen name ve rolü nereden alacak burada belirtiyoruz...
-
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(userInfo.Claims, CookieAuthenticationDefaults.AuthenticationScheme, "name", "role");
 
             ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);

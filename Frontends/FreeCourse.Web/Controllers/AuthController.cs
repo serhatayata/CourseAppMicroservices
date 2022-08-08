@@ -46,8 +46,6 @@ namespace FreeCourse.Web.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            //Eğer OpenIdConnect olsaydı...
-            //await HttpContext.SignOutAsync("oidc");
             await _identityService.RevokeRefreshToken();
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
