@@ -4,16 +4,17 @@ using FreeCourse.Services.Catalog.Services;
 using FreeCourse.Services.Catalog.Settings;
 using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager Configuration = builder.Configuration;
 IWebHostEnvironment Environment = builder.Environment;
 
 // Add services to the container.
-
 #region MassTransit
 builder.Services.AddMassTransit(x =>
 {
@@ -58,7 +59,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     options.Audience = "resource_catalog";
     options.RequireHttpsMetadata = false;
 });
-
 
 var app = builder.Build();
 

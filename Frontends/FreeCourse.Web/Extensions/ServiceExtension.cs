@@ -22,7 +22,6 @@ namespace FreeCourse.Web.Extensions
             //Burada AddHttpMessageHandler ile herhangi bir http isteğinde bu handler'ı çalıştıracak.
 
             services.AddHttpClient<ICatalogService, CatalogService>(opt =>
-
             {
                 opt.BaseAddress = new Uri($"{serviceApiSettings.GatewayBaseUri}/{serviceApiSettings.Catalog.Path}");
             }).AddHttpMessageHandler<ClientCredentialTokenHandler>();

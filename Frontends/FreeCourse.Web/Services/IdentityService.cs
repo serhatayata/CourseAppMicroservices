@@ -158,6 +158,7 @@ namespace FreeCourse.Web.Services
             //    ]
             //}
             //UserInfo ile gelen name ve rolü nereden alacak burada belirtiyoruz...
+
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(userInfo.Claims, CookieAuthenticationDefaults.AuthenticationScheme, "name", "role");
 
             ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
